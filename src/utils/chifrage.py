@@ -18,5 +18,6 @@ class Chiffrement:
 # var = ch.encrypt('blabla', 'pass')
 # print(var)
 # print(ch.decrypt(var, 'pass'))
+print('(')
 
 
