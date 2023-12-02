@@ -3,11 +3,10 @@ from pathlib import Path
 import sys
 
 from PySide6.QtCore import Qt, QUrl
-from PySide6.QtWidgets import QApplication, QVBoxLayout, QWidget
+from PySide6.QtWidgets import QApplication, QVBoxLayout, QWidget, QLabel
 from PySide6.QtWebEngineWidgets import QWebEngineView
 
 CURRENT_DIRECTORY = Path(__file__).resolve().parent
-
 
 class webView(QWidget):
     def __init__(self):
@@ -20,9 +19,7 @@ class webView(QWidget):
         self.webV.load(url)
 
         layout = QVBoxLayout(self)
-        layout.setContentsMargins(0, 0, 0, 0)
         layout.addWidget(self.webV)
-
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
