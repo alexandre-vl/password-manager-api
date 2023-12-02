@@ -8,6 +8,7 @@ from PySide6.QtWebEngineWidgets import QWebEngineView
 
 CURRENT_DIRECTORY = Path(__file__).resolve().parent
 
+
 class webView(QWidget):
     def __init__(self):
         super(webView, self).__init__()
@@ -20,6 +21,7 @@ class webView(QWidget):
 
         layout = QVBoxLayout(self)
         layout.addWidget(self.webV)
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
