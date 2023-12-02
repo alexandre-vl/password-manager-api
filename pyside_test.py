@@ -20,6 +20,7 @@ class webView(QWidget):
         self.webV.load(url)
 
         layout = QVBoxLayout(self)
+        layout.setContentsMargins(0, 0, 0, 0)
         layout.addWidget(self.webV)
 
 
