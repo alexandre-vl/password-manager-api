@@ -12,20 +12,34 @@
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <body>
+
+    <div class="sidenav">
+        <div class="account-shearch">
+
+        </div>
+
+        <div class="type">
+            <a class="nav-btn" href="#">All Items</a>
+            <a class="nav-btn" href="#">Trash</a>
+        </div>
+
+        <div class="bottom">
+
+        </div>
+
+    </div>
+
+    <div class="main">
         <h1 class="text-3xl font-bold underline"> Hello world! </h1>
 
         <button id="btn" class="rounded-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
             Click me
         </button>
+    </div>
+
     </body>
 </html>
-
-
-
 <script>
-
-
-
     const btn = document.getElementById('btn');
 
     btn.addEventListener('click', () => {
