@@ -5,47 +5,92 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
-
         <title>Pswd Manager</title>
 
         <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            background: "#282828",
+                            background_secondary: "#1e1e1e",
+                        },
+                    },
+                },
+            };
+        </script>
     </head>
-    <body>
+    <body class="w-screen flex items-center justify-center">
+        <div class="w-80 bg-background h-screen">
+            <div class="h-full px-5 py-12 flex flex-col gap-3">
+                <a
+                    href="#"
+                    class="px-3 py-1.5 rounded-md bg-blue-600 flex items-center justify-between w-full"
+                >
+                    <div class="flex items-center gap-2">
+                        <svg
+                            class="w-4 h-4 text-white"
+                            fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 512 512"
+                        >
+                            <path
+                                d="M408 96H252.11a23.89 23.89 0 01-13.31-4L211 73.41A55.77 55.77 0 00179.89 64H104a56.06 56.06 0 00-56 56v24h416c0-30.88-25.12-48-56-48zM423.75 448H88.25a56 56 0 01-55.93-55.15L16.18 228.11v-.28A48 48 0 0164 176h384.1a48 48 0 0147.8 51.83v.28l-16.22 164.74A56 56 0 01423.75 448zm56.15-221.45z"
+                            />
+                        </svg>
+                        <p class="text-white font-medium text-sm">All items</p>
+                    </div>
 
-    <div class="sidenav">
-        <div class="account-shearch">
+                    <div class="h-full flex items-center justify-center">
+                        <p class="text-white/50 text-xs">12</p>
+                    </div>
+                </a>
+                <a
+                    href="#"
+                    class="px-3 py-1.5 rounded-md bg-transparent flex items-center justify-between w-full"
+                >
+                    <div class="flex items-center gap-2">
+                        <svg
+                            class="w-4 h-4 text-amber-400"
+                            fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="ionicon"
+                            viewBox="0 0 512 512"
+                        >
+                            <path
+                                d="M394 480a16 16 0 01-9.39-3L256 383.76 127.39 477a16 16 0 01-24.55-18.08L153 310.35 23 221.2a16 16 0 019-29.2h160.38l48.4-148.95a16 16 0 0130.44 0l48.4 149H480a16 16 0 019.05 29.2L359 310.35l50.13 148.53A16 16 0 01394 480z"
+                            />
+                        </svg>
+                        <p class="text-white font-medium text-sm">Favorites</p>
+                    </div>
 
+                    <div class="h-full flex items-center justify-center">
+                        <p class="text-white/50 text-xs">12</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="bottom"> </div>
         </div>
 
-        <div class="type">
-            <a class="nav-btn" href="#">All Items</a>
-            <a class="nav-btn" href="#">Trash</a>
+        <div class="w-full h-full">
+            <div class="w-full h-full flex items-center justify-center"> </div>
         </div>
-
-        <div class="bottom">
-
-        </div>
-
-    </div>
-
-    <div class="main">
-        <h1 class="text-3xl font-bold underline"> Hello world! </h1>
-
-        <button id="btn" class="rounded-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Click me
-        </button>
-    </div>
-
     </body>
 </html>
+
 <script>
-    const btn = document.getElementById('btn');
+    const btn = document.getElementById("btn");
 
-    btn.addEventListener('click', () => {
-        alert('Hello world!');
+    btn.addEventListener("click", () => {
+        alert("Hello world!");
     });
-
 </script>
 
-
+<style>
+    body {
+        background-color: #1e1e1e;
+        color: #fff;
+    }
+</style>

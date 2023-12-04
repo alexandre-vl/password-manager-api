@@ -1,43 +1,21 @@
-# Create two functions to encrypt and decrypt a password with a salt and a pepper using sha56 algorithm without any import and without hashlib library
+class Chiffrement:
+    def __init__(self):
+        self.author = 'La Team Alexandre'
+        self.version = '0.0.1'
 
-import random
-import string
+    def encrypt(self, password: str, key: str):
+        encryptedPassword = ""
+        for i in range(len(password)):
+            caractere_chiffre = chr(ord(password[i]) ^ ord(key[i % len(key)]))
+            encryptedPassword += caractere_chiffre
+        return encryptedPassword
 
-def generate_salt():
-    salt = ''.join(random.choices(string.ascii_letters + string.digits, k=8))
-    return salt
-
-def generate_pepper():
-    pepper = ''.join(random.choices(string.ascii_letters + string.digits, k=8))
-    return pepper
-
-# Make the encryption more secure
-def encrypt(salt, pepper, password):
-    encrypted_password = salt + password + pepper
-    return encrypted_password
-
-def decrypt(salt, pepper, encrypted_password):
-    decrypted_password = encrypted_password.replace(salt, '').replace(pepper, '')
-    return decrypted_password
-
-def sha56():
-    
+    def decrypt(self, password: str, key: str):
+        return self.encrypt(password, key)
 
 
-def main():
-    my_password = "bonjour"
-
-    salt = generate_salt()
-    pepper = generate_pepper()
-
-    encrypted_password = encrypt(salt, pepper, my_password)
-    print(encrypted_password)
-
-    decrypted_password = decrypt(salt, pepper, encrypted_password)
-    print(decrypted_password)
-
-
-
-main()
+ch = Chiffrement()
+var = ch.encrypt('blabla', 'pass')
+print(ch.decrypt(var, 'pass'))
 
 

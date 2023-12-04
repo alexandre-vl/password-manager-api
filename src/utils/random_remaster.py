@@ -7,3 +7,5 @@ def random():
 def randomRange(min, max):
     return int(str(time.time()).replace('.', '')[8:]) % (max - min) + min
 
+print(random())
+
