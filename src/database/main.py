@@ -32,3 +32,17 @@ class Database:
             with open(self.path, "w") as db:
                 json.dump(db_data, db, indent=4)
 
+    def remove_by_id(self, id):
+        with open(self.path, "r") as db:
+            db_data = json.load(db)
+            for i in range(len(db_data)):
+                if db_data[i]["id"] == id:
+                    db_data.pop(i)
+                    break
+            with open(self.path, "w") as db:
+                json.dump(db_data, db, indent=4)
+
+    
+
+    
+
