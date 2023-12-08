@@ -53,26 +53,40 @@ def api_item():
         if found_item:
             return "You already have a password for this website", 400
 
-
-        database.append({
+        structure = {
             "id": last_id,
             "credential": credential,
             "value": value,
             "website": website,
             "isFavorite": False
-        })
+        }
+
+        database.append(structure)
         
-
-
-        return "Post"
+        return structure
     elif request.method == 'PUT':
         return "Put"
     elif request.method == 'DELETE':
-        return "Delete"
+        id_param = request.args.get('id')
+        if not id_param:
+            return "No ID param found", 400
+        try:
+            if not int(id_param):
+                return "Incorrect ID", 400
+
+            found_item = next((x for x in db_json if x['id'] == int(id_param)), None)
+            
+            if not found_item:
+                return "No item found", 404
+
+            database.remove_by_id(found_item['id'])
+
+            return "Success"
+        except ValueError:
+            return "Incorrect ID", 400
+        return "Internal server error", 500
     else:
         abort(404)
-
-
 
 if __name__ == '__main__':
     app.run(use_reloader=True)

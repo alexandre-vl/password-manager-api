@@ -1,16 +1,9 @@
 [
     {
-        "id": 2,
+        "id": 1,
         "credential": "test",
         "value": "test",
-        "website": "https://atrium-sud.fr",
-        "isFavorite": false
-    },
-    {
-        "id": 3,
-        "credential": "test",
-        "value": "test",
-        "website": "https://googl.fr",
+        "website": "https://google.fr",
         "isFavorite": false
     }
 ]
