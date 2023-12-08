@@ -1,5 +1,6 @@
 from src.utils.random_remaster import random, randomRange
 from src.database.main import Database
+from src.utils.chiffrage import encrypt, decrypt
 
 import views
 from flask import Flask, request, abort
@@ -31,6 +32,13 @@ def api_item():
             
             if not found_item:
                 return "No item found", 404
+
+            decrypted_value = decrypt(found_item['value'])
+            if not found_item:
+                return "Enable to decrypt password", 500
+            
+            found_item['value'] = decrypted_value
+            
             return found_item
         except ValueError:
             return "Incorrect ID", 400
@@ -53,10 +61,15 @@ def api_item():
         if found_item:
             return "You already have a password for this website", 400
 
+        crypted_password = encrypt(value)
+        if not crypted_password:
+            return "Error while encrypting password", 500
+        
+
         structure = {
             "id": last_id,
             "credential": credential,
-            "value": value,
+            "value": crypted_password,
             "website": website,
             "isFavorite": False
         }

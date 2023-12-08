@@ -2,7 +2,7 @@
     {
         "id": 1,
         "credential": "test",
-        "value": "test",
+        "value": "\u001e\u001d\u0018\u0007\u0000\n\u0002\b-\u008c",
         "website": "https://google.fr",
         "isFavorite": false
     }
