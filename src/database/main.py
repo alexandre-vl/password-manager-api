@@ -28,6 +28,7 @@ class Database:
         with open(self.path, "r") as db:
             db_data = json.load(db)
             db_data.append(data)
+            print(db_data)
             with open(self.path, "w") as db:
                 json.dump(db_data, db, indent=4)
 

@@ -6,8 +6,6 @@ from flask import Flask, request, abort
 
 database = Database("db.json")
 
-print(database.read())
-
 app = Flask(__name__)
 
 app.add_url_rule('/', view_func=views.index)
@@ -45,8 +43,24 @@ def api_item():
 
         if not credential or not value or not website:
             return "Please provide all necessary params", 400
-
         
+
+        last_id = (0 if len(db_json) == 0 else int(db_json[-1]['id'])) + 1
+        if not last_id:
+            return "Internal servor error", 500
+        
+        found_item = next((x for x in db_json if x['website'] == website), None)
+        if found_item:
+            return "You already have a password for this website", 400
+
+
+        database.append({
+            "id": last_id,
+            "credential": credential,
+            "value": value,
+            "website": website,
+            "isFavorite": False
+        })
         
 
 
@@ -61,9 +75,6 @@ def api_item():
 
 
 if __name__ == '__main__':
-    """ for i in range(1000):
-        print(randomRange(1, 10)) """
-
     app.run(use_reloader=True)
 
     
