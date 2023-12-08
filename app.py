@@ -64,7 +64,6 @@ def api_item():
         crypted_password = encrypt(value)
         if not crypted_password:
             return "Error while encrypting password", 500
-        
 
         structure = {
             "id": last_id,
