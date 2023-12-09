@@ -1,9 +1,9 @@
 [
     {
         "id": 1,
-        "value": "dfddsdfsdfdsfsdfDfsdfsfgqdjfsd",
-        "credential": "alexandre.vargas.lopez@gmail.com",
-        "website": "www.google.com",
-        "isFavorite": true
+        "credential": "test",
+        "value": "\u001e\u001d\u0018\u0007\u0000\n\u0002\b-\u008c",
+        "website": "https://google.fr",
+        "isFavorite": false
     }
 ]

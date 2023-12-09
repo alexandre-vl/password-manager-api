@@ -1,21 +1,13 @@
-class Chiffrement:
-    def __init__(self):
-        self.author = 'La Team Alexandre'
-        self.version = '0.0.1'
+secret_key = "sdhfsyug_ètgduhfgyudstfeisyfgsyutfgs_çès-tdfcsiudgyzeçè-fyug"
 
-    def encrypt(self, password: str, key: str):
-        encryptedPassword = ""
-        for i in range(len(password)):
-            caractere_chiffre = chr(ord(password[i]) ^ ord(key[i % len(key)]))
-            encryptedPassword += caractere_chiffre
-        return encryptedPassword
+def encrypt(password: str):
+    encryptedPassword = ""
+    for i in range(len(password)):
+        caractere_chiffre = chr(ord(password[i]) ^ ord(secret_key[i % len(secret_key)]))
+        encryptedPassword += caractere_chiffre
+    return encryptedPassword
 
-    def decrypt(self, password: str, key: str):
-        return self.encrypt(password, key)
-
-
-ch = Chiffrement()
-var = ch.encrypt('blabla', 'pass')
-print(ch.decrypt(var, 'pass'))
+def decrypt(password: str):
+    return encrypt(password)
 
 
