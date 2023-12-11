@@ -21,7 +21,7 @@
             };
         </script>
     </head>
-    <body class="w-screen flex items-center justify-center">
+    <body class="w-screen flex justify-center">
         <div class="w-80 bg-background h-screen">
             <div class="h-full px-5 py-12 flex flex-col gap-2">
                 <a
@@ -74,18 +74,65 @@
             <div class="bottom"> </div>
         </div>
 
-        <div class="w-full h-full">
-            <div class="w-full h-full flex items-center justify-center"> </div>
+        <div class="w-full h-full px-10">
+            <div class="h-full flex flex-col w-80">
+
+                <div id="itemListWrapper" class="flex flex-col gap-3 w-full">
+                    <div class="w-full flex py-3 px-6 rounded-md bg-background_secondary">
+
+                    </div>
+                </div>
+
+            </div>
         </div>
     </body>
 </html>
 
 <script>
-    const btn = document.getElementById("btn");
 
-    btn.addEventListener("click", () => {
-        alert("Hello world!");
-    });
+    const itemList = document.getElementById('itemListWrapper')
+
+    async function fetchItems() {
+        const request = await fetch('http://localhost:5000/api/item/search')
+        if (!request || request.status !== 200)
+            return console.log('Une erreur est survenue')
+        const response = await request.json()
+        return response
+    }
+
+    async function fetchItemById(id) {
+        const request = await fetch('http://localhost:5000/api/item?id='+id)
+        if (!request || request.status !== 200)
+            return console.log('Une erreur est survenue')
+        const response = await request.json()
+        return response
+    }
+
+    fetchItems().then(fetchedItems => {
+
+        console.log(fetchedItems)
+
+        fetchedItems.forEach(item => {
+            itemList.innerHTML += `
+                <div class="w-full flex flex-col py-3 px-6 rounded-md bg-background">
+                    <p class="text-white font-bold">Identifiants: ${item.credential}<p>
+                    <p class="text-white font-bold">Mot de passe: <span id="password-${item.id}">${item.value}</span><p>
+                    <button id="item-${item.id}">Reveal</button>
+                </div>
+            `
+
+            const button_reveal = document.getElementById('item-'+item.id)
+            button_reveal.addEventListener('click', (e) => {
+                fetchItemById(item.id).then(item => {
+                    const password_span = document.getElementById('password-'+item.id)
+                    password_span.innerHTML = item.value
+                } )
+            })
+        })
+
+    })
+
+
 </script>
 
 <style>

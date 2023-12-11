@@ -30,9 +30,7 @@ if __name__ == "__main__":
     app.setApplicationName("Password Manager")
 
     web = webView()
-    web.setWindowFlags(Qt.FramelessWindowHint)
     web.resize(800, 600)
-
     web.show()
 
     sys.exit(app.exec_())

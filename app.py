@@ -5,10 +5,12 @@ from src.utils.generator import generate
 
 import views
 from flask import Flask, request, abort
+from flask_cors import CORS
 
 database = Database("db.json")
 
 app = Flask(__name__)
+CORS(app)
 
 app.add_url_rule('/', view_func=views.index)
 
@@ -39,7 +41,7 @@ def api_item():
                 return "Enable to decrypt password", 500
             
             found_item['value'] = decrypted_value
-            
+        
             return found_item
         except ValueError:
             return "Incorrect ID", 400
@@ -100,6 +102,12 @@ def api_item():
         return "Internal server error", 500
     else:
         abort(404)
+
+@app.route('/api/item/search', methods=['GET'])
+def search_Item():
+    db_json = database.read_json()
+
+    return db_json
 
 if __name__ == '__main__':
     app.run(use_reloader=True)
