@@ -1,5 +1,11 @@
 secret_key = "sdhfsyug_ètgduhfgyudstfeisyfgsyutfgs_çès-tdfcsiudgyzeçè-fyug"
 
+
+# Bit Value          (Decimal)	8	4	2	1
+# 10                 (1010)	    1	0	1	0
+# 6                  (0110)	    0	1	1	0
+# XOR Result         (1100)	    1	1	0	0
+
 def encrypt(password: str):
     encryptedPassword = ""
     for i in range(len(password)):
@@ -9,5 +15,3 @@ def encrypt(password: str):
 
 def decrypt(password: str):
     return encrypt(password)
-
-

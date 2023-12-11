@@ -1,6 +1,7 @@
 from src.utils.random_remaster import random, randomRange
 from src.database.main import Database
-from src.utils.chiffrage import encrypt, decrypt
+from src.utils.encryption import encrypt, decrypt
+from src.utils.generator import generate
 
 import views
 from flask import Flask, request, abort
