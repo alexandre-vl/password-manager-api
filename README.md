@@ -6,9 +6,9 @@ Introduction :
 
 ⚗️ Fonctionnalités :
 
-`🔑` Encryption/decryption XOR Algorythm
-`📡` Stockage server-less (offline)
-`✨` Interface moderne
+`🔑` Encryption/decryption XOR Algorythm \n
+`📡` Stockage server-less (offline) \n
+`✨` Interface moderne \n
 
 Roadmap :
 
