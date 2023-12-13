@@ -121,12 +121,14 @@
                 </div>
             `
 
-            const button_reveal = document.getElementById('item-'+item.id)
+            button_reveal = document.getElementById('item-'+item.id)
+            console.log(button_reveal)
             button_reveal.addEventListener('click', (e) => {
+                console.log('cliecked')
                 fetchItemById(item.id).then(item => {
                     const password_span = document.getElementById('password-'+item.id)
                     password_span.innerHTML = item.value
-                } )
+                })
             })
         })
 

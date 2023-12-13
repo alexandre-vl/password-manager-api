@@ -5,5 +5,12 @@
         "value": "\u001e\u001d\u0018\u0007\u0000\n\u0002\b-\u008c",
         "website": "https://google.fr",
         "isFavorite": false
+    },
+    {
+        "id": 2,
+        "credential": "admin@gmail.com",
+        "value": "\u001e\u001d\u0018\u0007\u0000\n\u0002\b-\u008cFUVG",
+        "website": "https://atrium-sud.fr",
+        "isFavorite": false
     }
 ]

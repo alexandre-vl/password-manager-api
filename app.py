@@ -6,6 +6,7 @@ from src.utils.generator import generate
 import views
 from flask import Flask, request, abort
 from flask_cors import CORS
+import json
 
 database = Database("db.json")
 
@@ -107,10 +108,12 @@ def api_item():
 def search_Item():
     db_json = database.read_json()
 
-    return db_json
+    print(db_json)
+
+    return json.dumps(db_json)
 
 if __name__ == '__main__':
-    app.run(use_reloader=True)
+    app.run(host='0.0.0.0')
 
     
 
